@@ -6,9 +6,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from statistics import mean 
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.cm as cm
 from sklearn.preprocessing import PolynomialFeatures
+from scipy.stats import pearsonr
+from scipy.stats import spearmanr
+
 
 
 
@@ -60,6 +62,31 @@ percentageWinsTrainY = np.array([
     0.600, 0.562, 0.562, 0.305, 0.183, 0.621, 0.681, 0.554, 0.500, 0.602,
     0.562, 0.329, 0.681, 0.568, 0.685, 0.570, 0.256, 0.560, 0.268, 0.378
 ])
+
+
+# checking correlation: 
+print("Testing the linear relationship between two of the features and the % wins")
+correlationCoefficient, pVal = pearsonr(numAllStarsTrainX, percentageWinsTrainY)
+print("Number of all stars:")
+print("Corr coeff:", correlationCoefficient)
+print("P val:", pVal)
+
+correlationCoefficient, pVal = pearsonr(averageGameRatingSt5TrainX, percentageWinsTrainY)
+print("Average in game rating of top 5 players:")
+print("Corr coeff:", correlationCoefficient)
+print("P val:", pVal)
+
+
+print("Testing how well the relationship between two variables can be described using a monotonic function using spearman's corr coeff:")
+print("Number of all stars: ")
+spearman_corr, spearman_p_value = spearmanr(numAllStarsTrainX, percentageWinsTrainY)
+print("Spearman Correlation Coefficient:", spearman_corr)
+print("P-value:", spearman_p_value)
+print("Averag in game rating of top 5 players: ")
+spearman_corr, spearman_p_value = spearmanr(averageGameRatingSt5TrainX, percentageWinsTrainY)
+print("Spearman Correlation Coefficient:", spearman_corr)
+print("P-value:", spearman_p_value)
+
 
 
 # let's plot all the data points: 
