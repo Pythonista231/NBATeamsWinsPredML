@@ -157,9 +157,6 @@ def getAllAverageRatingOfTop5Players(seasonChosen): # function to get the averag
 
     for teamName in nbaTeamsOrder: # for each team: 
 
-        print(teamName, "is the one we got to")
-
-
         #scroll all the way up
         driver.execute_script("window.scrollTo(0, 0);")
     
@@ -211,7 +208,6 @@ def getAllAverageRatingOfTop5Players(seasonChosen): # function to get the averag
         numberOfTries = 0
         while not seasonSelectedShown and numberOfTries < 10:
             span = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.grouped-dropdown.dropdown #main-dropdown span")))
-            print(span.text) 
             if span.text == seasonChosen: 
                 seasonSelectedShown = True
             else: 
