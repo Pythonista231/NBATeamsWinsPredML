@@ -43,6 +43,6 @@ Achieved MAE of ~5% wins of a season, demonstrating high model accuracy.
 
 <br></br>
 
-# This project was developed in 2023 when I was 18, after completing several of DeepLearning.AI’s excellent courses. It combines my passion for data science, Machine Learning, sports tech and basketball.
+### This project was developed in 2023 when I was 18, after completing several of DeepLearning.AI’s excellent courses. It combines my passion for data science, Machine Learning, sports tech and basketball.
 
 
